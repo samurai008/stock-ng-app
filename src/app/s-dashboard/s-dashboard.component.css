@@ -1,0 +1,115 @@
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard > .stock-list, .dashboard > .portfolio {
+  flex-grow: 1;
+  width: 50%;
+}
+
+.portfolio .cash {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.3rem 0.5rem;
+}
+
+.stock-card {
+  display: flex;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.stock-card--title {
+  flex-grow: 1;
+  padding: 0.2rem 0.5rem 0.2rem 0;
+}
+
+.stock-card--price {
+  flex-grow: 0;
+  padding: 0.2rem 0.5rem;
+  color: #ffffff;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  font-size: 0.8rem;
+}
+
+.stock-card--units {
+  flex-grow: 0;
+  padding: 0.2rem 0.5rem;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 0.8rem;
+  background: #D16666;
+  color: #ffffff;
+}
+
+.stock-card--title {
+  flex-grow: 0;
+}
+
+.stock-card--buttons {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.stock-list .stock-card:not(:last-child) {
+  border-bottom: 1px solid #C1C1C1;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.pr-2 {
+  padding-right: 1rem;
+}
+
+.pl-2 {
+  padding-left: 1rem;
+}
+
+.action-segment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media all and (max-width: 480px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .dashboard > .stock-list, .dashboard > .portfolio {
+    width: 100%;
+  }
+
+  .list-sm-title {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5em;
+    border-top: 1px solid #C1C1C1;
+  }
+}
+
+@media all and (min-width: 481px) {
+  .list-sm-title {
+    display: none;
+  }
+
+  .pr-md-1 {
+    padding-right: 1rem;
+  }
+
+  .pl-md-2 {
+    padding-left: 1rem;
+  }
+}
+
+.empty-message {
+  color: #C1C1C1;
+  text-align: center;
+  padding: 0.5rem;
+}

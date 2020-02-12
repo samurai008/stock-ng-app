@@ -1,0 +1,16 @@
+
+
+<div class="transaction-status" *ngIf="!hideTransactionMessage">
+  <span>{{transactionMessages[0]}}</span>
+</div>
+
+<app-s-dashboard [refreshFrequency]="1000" (stocksWillLoad)="stocksWillLoad($event)" (stocksDidLoad)="stocksDidLoad($event)" (stocksBought)="stocksBought($event)" (stocksSold)="stocksSold($event)"></app-s-dashboard>
+<div class="text-align-right mt-2 status-box" *ngIf="updateDateAndTime">
+  <div class="indicator">
+    <span class="indicator-message">{{indicatorMessages[0]}}</span>
+  </div>
+  <div class="pl-2">
+    <span class="pill-key">Last Updated</span>
+    <span class="pill-value">{{updateDateAndTime}}</span>
+  </div>
+</div>

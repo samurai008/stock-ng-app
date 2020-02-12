@@ -1,0 +1,41 @@
+<div class="dashboard">
+  <div class="portfolio pr-md-2" *ngIf="portfolio">
+    <div class="action-segment">
+      <div class="cash">${{portfolio.data.cash}}</div>
+      <div>
+        <button class="btn btn-dark" (click)="sellMultipleStocks()" [disabled]="sellSelectedState" >Sell selected</button>
+      </div>
+    </div>
+    <div class="stock-list" *ngIf="!isPortfolioEmpty; else emptyPortfolioMessage">
+      <div class="stock-card" *ngFor="let stockOwned of portfolio.data.buys | keyvalue">
+        <label class="container">
+          <input type="checkbox" [checked]="isChecked(stockOwned.value.id)" (change)="onCheckboxChange(stockOwned.value)" />
+          <span class="checkmark"></span>
+        </label>
+        <div class="stock-card--title">{{stockOwned.value.name}}</div>
+        <div [ngClass]="{'stock-card--price': true, 'red': stockOwned.value.differential < 0, 'green': stockOwned.value.differential >= 0}">${{stockOwned.value.price}}</div>
+        <div class="stock-card--units">{{stockOwned.value.units}}</div>
+        <div class="stock-card--buttons">
+          <button class="btn btn-light" (click)="sellStock(stockOwned.value)" [disabled]="!sellSelectedState">Sell</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #emptyPortfolioMessage>
+      <p class="empty-message">
+        Buy stocks to build your portfolio.
+      </p>
+    </ng-template>
+  </div>
+  <div class="stock-list pl-md-2" *ngIf="stockList.length > 0">
+    <div class="list-sm-title">
+      Live stock list
+    </div>
+    <div class="stock-card" *ngFor="let stock of stockList">
+      <div class="stock-card--title">{{stock.name}}</div>
+      <div [ngClass]="{'stock-card--price rounded': true, 'red': stock.differential < 0, 'green': stock.differential >= 0}" >${{stock.price}}</div>
+      <div class="stock-card--buttons">
+        <button class="btn btn-dark" (click)="buyStock(stock)">Buy</button>
+      </div>
+    </div>
+  </div>
+</div>

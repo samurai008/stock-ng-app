@@ -1,0 +1,42 @@
+.status-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.indicator-message {
+  background: #2C4251;
+  padding: 0.3rem 0.5rem;
+  color: #ffffff;
+  font-size: 0.6rem;
+  margin: 0.3rem 0;
+  border-radius: 5px;
+}
+
+.pill-key {
+  background-color: #2C4251;
+  color: white;
+  font-size: 0.6rem;
+  padding: 0.3rem 0.5rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pill-value {
+  background-color: #B6C649;
+  color: white;
+  font-size: 0.6rem;
+  padding: 0.3rem 0.5rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.transaction-status {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  background: #B6C649;
+  font-size: 0.6rem;
+  padding: 0.3rem 0.5rem;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
